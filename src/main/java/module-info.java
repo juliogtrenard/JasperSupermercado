@@ -1,6 +1,8 @@
 module es.juliogtrenard.jaspersupermercado {
     requires javafx.controls;
     requires javafx.fxml;
+    requires net.sf.jasperreports.core;
+    requires java.sql;
 
 
     opens es.juliogtrenard.jaspersupermercado to javafx.fxml;
