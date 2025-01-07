@@ -106,7 +106,7 @@ public class SupermercadoController {
     void AccionListarProductos(ActionEvent event) {
         try {
             DBConnect db=new DBConnect();
-            InputStream reportStream =getClass().getResourceAsStream("/reports/ListaProductos.jasper");
+            InputStream reportStream =getClass().getResourceAsStream("/reports/ListaProducto.jasper");
             if (reportStream == null) {
                 System.out.println("Archivo no encontrado");
             }
@@ -132,7 +132,7 @@ public class SupermercadoController {
     void AccionTablaProductos(ActionEvent event) {
         try {
             DBConnect db=new DBConnect();
-            InputStream reportStream =getClass().getResourceAsStream("/reports/TablaProductos.jasper");
+            InputStream reportStream =getClass().getResourceAsStream("/reports/TablaProducto.jasper");
             if (reportStream == null) {
                 System.out.println("Archivo no encontrado");
             }
