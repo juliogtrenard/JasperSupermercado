@@ -1,5 +1,6 @@
 package es.juliogtrenard.jaspersupermercado.controller;
 
+import es.juliogtrenard.jaspersupermercado.SupermercadoApplication;
 import es.juliogtrenard.jaspersupermercado.db.DBConnect;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,8 +11,6 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
-
-import java.io.InputStream;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
@@ -51,16 +50,14 @@ public class SupermercadoController {
      */
     @FXML
     void AccionAgruparSecciones(ActionEvent event) {
+        String informe = "AgruparSecciones";
+
         try {
             DBConnect db=new DBConnect();
-            InputStream reportStream =getClass().getResourceAsStream("/reports/AgruparSecciones.jasper");
-            if (reportStream == null) {
-                System.out.println("Archivo no encontrado");
-            }
-
-            JasperReport report = (JasperReport) JRLoader.loadObject(reportStream);
+            
+            JasperReport report = (JasperReport) JRLoader.loadObject(SupermercadoApplication.class.getResource("reports/" + informe + ".jasper"));
             Map<String, Object> parameters = new HashMap<>();
-            parameters.put("IMAGE_PATH", db.getClass().getResource("/img/").toString());
+            parameters.put("IMAGE_PATH", SupermercadoApplication.class.getResource("img/").toString());
             JasperPrint jprint = JasperFillManager.fillReport(report, parameters, db.getConnection());
             JasperViewer viewer = new JasperViewer(jprint, false);
             viewer.setVisible(true);
@@ -78,15 +75,14 @@ public class SupermercadoController {
      */
     @FXML
     void AccionGraficoProductos(ActionEvent event) {
+        String informe = "GraficoProductos";
+
         try {
             DBConnect db=new DBConnect();
-            InputStream reportStream =getClass().getResourceAsStream("/reports/GraficoProductos.jasper");
-            if (reportStream == null) {
-                System.out.println("Archivo no encontrado");
-            }
-            JasperReport report = (JasperReport) JRLoader.loadObject(reportStream);
+            
+            JasperReport report = (JasperReport) JRLoader.loadObject(SupermercadoApplication.class.getResource("reports/" + informe + ".jasper"));
             Map<String, Object> parameters = new HashMap<>();
-            parameters.put("IMAGE_PATH", db.getClass().getResource("/img/").toString());
+            parameters.put("IMAGE_PATH", SupermercadoApplication.class.getResource("img/").toString());
             JasperPrint jprint = JasperFillManager.fillReport(report, parameters, db.getConnection());
             JasperViewer viewer = new JasperViewer(jprint, false);
             viewer.setVisible(true);
@@ -104,15 +100,14 @@ public class SupermercadoController {
      */
     @FXML
     void AccionListarProductos(ActionEvent event) {
+        String informe = "ListaProducto";
+
         try {
             DBConnect db=new DBConnect();
-            InputStream reportStream =getClass().getResourceAsStream("/reports/ListaProducto.jasper");
-            if (reportStream == null) {
-                System.out.println("Archivo no encontrado");
-            }
-            JasperReport report = (JasperReport) JRLoader.loadObject(reportStream);
+            
+            JasperReport report = (JasperReport) JRLoader.loadObject(SupermercadoApplication.class.getResource("reports/" + informe + ".jasper"));
             Map<String, Object> parameters = new HashMap<>();
-            parameters.put("IMAGE_PATH", db.getClass().getResource("/img/").toString());
+            parameters.put("IMAGE_PATH", SupermercadoApplication.class.getResource("img/").toString());
             JasperPrint jprint = JasperFillManager.fillReport(report, parameters, db.getConnection());
             JasperViewer viewer = new JasperViewer(jprint, false);
             viewer.setVisible(true);
@@ -130,15 +125,14 @@ public class SupermercadoController {
      */
     @FXML
     void AccionTablaProductos(ActionEvent event) {
+        String informe = "TablaProducto";
+
         try {
             DBConnect db=new DBConnect();
-            InputStream reportStream =getClass().getResourceAsStream("/reports/TablaProducto.jasper");
-            if (reportStream == null) {
-                System.out.println("Archivo no encontrado");
-            }
-            JasperReport report = (JasperReport) JRLoader.loadObject(reportStream);
+            
+            JasperReport report = (JasperReport) JRLoader.loadObject(SupermercadoApplication.class.getResource("reports/" + informe + ".jasper"));
             Map<String, Object> parameters = new HashMap<>();
-            parameters.put("IMAGE_PATH", db.getClass().getResource("/img/").toString());
+            parameters.put("IMAGE_PATH", SupermercadoApplication.class.getResource("img/").toString());
             JasperPrint jprint = JasperFillManager.fillReport(report, parameters, db.getConnection());
             JasperViewer viewer = new JasperViewer(jprint, false);
             viewer.setVisible(true);
